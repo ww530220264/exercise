@@ -16,23 +16,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <asm.version>9.0</asm.version>
+        <asm.version>8.0.1</asm.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.ow2.asm/asm-util -->
         <dependency>
+            <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
-            <groupId>org.ow2.asm</groupId>
-            <version>${asm.version}</version>
-        </dependency>
-        <dependency>
-            <artifactId>asm-tree</artifactId>
-            <groupId>org.ow2.asm</groupId>
-            <version>${asm.version}</version>
-        </dependency>
-        <dependency>
-            <artifactId>asm-analysis</artifactId>
-            <groupId>org.ow2.asm</groupId>
             <version>${asm.version}</version>
         </dependency>
         <dependency>

@@ -1,10 +1,10 @@
 package org.example.asm._1;
 
-import jdk.internal.org.objectweb.asm.*;
+
+import org.objectweb.asm.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class Generator {
@@ -14,9 +14,10 @@ public class Generator {
         ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_MAXS);
 
         MyClassVistor myClassVistor = new MyClassVistor(writer);
+        // reader类似event producer
         reader.accept(myClassVistor, ClassReader.SKIP_DEBUG);
         byte[] bytes = writer.toByteArray();
-        File f = new File("C:\\ww\\exercise\\target\\classes\\org\\example\\asm\\_1\\Asm_1_TMP.class");
+        File f = new File("C:\\workspace\\exercise\\target\\classes\\org\\example\\asm\\_1\\Asm_1_TMP.class");
         FileOutputStream fos = new FileOutputStream(f);
         fos.write(bytes);
         fos.flush();
@@ -26,8 +27,6 @@ public class Generator {
         Method test = aClass.getMethod("test");
         Object o = aClass.newInstance();
         test.invoke(o);
-//        Asm_1 asm_1 = new Asm_1();
-//        asm_1.test();
     }
 
     static class MyClassVistor extends ClassVisitor implements Opcodes {
